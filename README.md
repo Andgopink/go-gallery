@@ -1,66 +1,70 @@
-# Gallery - Web Image Gallery
+# 🖼️ Go Gallery
 
-A simple web-based image gallery built with Go using only the standard library.
+Минималистичная и быстрая веб-галерея изображений, написанная на чистом **Go** без использования тяжелых внешних фреймворков. Позволяет загружать фотографии через веб-интерфейс и мгновенно просматривать их в браузере.
 
-## Features
+![Go Version](https://shields.io)
+![License](https://shields.io)
 
-- Upload images (supported formats: .jpg, .jpeg, .png, .webp)
-- Display uploaded images in a responsive grid
-- Delete images
-- Modern, clean UI with gradient background
+---
 
-## Requirements
+## ✨ Возможности
 
-- Go 1.21 or later
+- 📤 **Загрузка изображений** в популярных форматах (`.jpg`, `.jpeg`, `.png`, `.webp`)
+- 🖼️ **Автоматическое отображение** загруженных фото в сетке галереи
+- ⚡ **Легковесный сервер** на стандартной библиотеке Go (`net/http`, `html/template`)
+- 📁 **Локальное хранение** файлов в директории `uploads/`
 
-## Running the Server
+---
 
-1. Make sure Go is installed and on your PATH
-2. Run the following command:
+## 📂 Структура проекта
 
-```bash
-cd E:\gallery
-go run main.go
-```
-
-The server will start on http://localhost:8080
-
-## API Endpoints
-
-### GET /
-Serves the main gallery page with HTML template.
-
-### GET /api/images
-Returns a JSON array of uploaded image filenames.
-
-```json
-[
-  "1234567890_image.jpg",
-  "7890123456_photo.png"
-]
-```
-
-### POST /api/images/upload
-Uploads an image via multipart/form-data with a 'file' field.
-
-Returns 200 OK on success.
-
-### GET /uploads/
-Serves uploaded files.
-
-### DELETE /uploads/{filename}
-Deletes an uploaded image.
-
-## File Structure
-
-```
-E:\gallery/
-├── main.go          # Main application code
-├── go.mod           # Go module file
+```text
+go-gallery/
+├── main.go             # Исходный код веб-сервера (порт 8080)
+├── go.mod              # Файл зависимостей модуля Go
+├── README.md           # Документация проекта
 ├── templates/
-│   └── index.html   # HTML template for the gallery
-├── uploads/         # Directory for uploaded images
-└── README.md        # This file
+│   └── index.html      # HTML-шаблон интерфейса (CSS + JS)
+└── uploads/            # Директория для загруженных изображений
+```
+
+---
+
+## 🚀 Быстрый старт
+
+### Требования
+- Установленный [Go](https://go.dev) версии **1.21** или выше.
+
+### Запуск проекта
+
+1. **Клонируйте репозиторий** (или скачайте архив с кодом):
+   ```bash
+   git clone https://github.com
+   cd go-gallery
+   ```
+
+2. **Подтяните зависимости** (если требуется):
+   ```bash
+   go mod tidy
+   ```
+
+3. **Запустите сервер:**
+   ```bash
+   go run main.go
+   ```
+
+4. **Откройте приложение в браузере:**
+   Перейдите по адресу 👉 **[http://localhost:8080](http://localhost:8080)**
+
+---
+
+## 🛠️ Планы по развитию (Roadmap)
+
+- [ ] Разделение проекта на независимый REST API (`/backend`) и SPA-клиент на React (`/frontend`)
+- [ ] Поддержка загрузки перетаскиванием (Drag & Drop)
+- [ ] Просмотр полноразмерных фото в модальном окне (Lightbox)
+- [ ] Настройка Nginx и контейнеризация через Docker Compose
+
 ```
 
 ## Notes
